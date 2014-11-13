@@ -1,0 +1,367 @@
+/* THIS IS THE REAL ONE */
+
+// Foundation Settings
+@import "foundation/_variables.scss";
+@import "normalize";
+@import "foundation.scss";
+
+
+$chelt: nyt-cheltenham, Georgia, Times, "Times New Roman", serif;
+$franklin: nyt-franklin, Arial, Helvetica, sans-serif;
+$georgia: Georgia, Times, "Times New Roman", serif;
+$arial: Arial, Helvetica, sans-serif;
+$border-color: #eee;
+$border-color-dk: #000;
+$shadow-color: #ddd;
+
+/* MIXINS */
+@mixin medium-border($side, $color:$border-color-dk) {
+  border-#{$side}: 2px solid $color;
+}
+
+@mixin thin-border($side) {
+  border-#{$side}: 1px solid $border-color;
+}
+
+@mixin shadow($side) {
+	box-shadow: 1px 2px 2px $shadow-color;
+}
+
+@mixin subhead-kicker($size) {
+	text-transform: uppercase;
+	color: $secondary-color;
+	font-size: emCalc($size);
+	line-height: 1.167;
+}
+
+// Global NYT styles
+ul {
+	li {
+		font-weight: bold;
+		font-size: emCalc(11);
+		line-height: 1.2;
+		margin-bottom: 7px;
+		list-style-type: none;
+	}
+	
+	&.disc li {
+		background: url(http://graphics8.nytimes.com/images/misc/bullet4x4.gif) no-repeat left .45em;
+		padding: 0 0 0 8px;
+	}
+}
+
+// Typography
+
+body {
+	font-family: $georgia;
+}
+
+.homepage h4,
+.inside-the-times h5,
+.all-sections-grid h6 {
+	font-family: $georgia;
+}
+
+.homepage h4.section-header-home {
+	font-family: $chelt;
+}
+
+.top-bar,
+.kicker,
+.marginalia h3,
+h5.subheader,
+.dateline,
+.byline,
+#mini-nav a {
+	font-family: $franklin
+}
+
+.all-sections-grid h5 {
+	font-family: $arial;
+}
+
+// HOMEPAGE STYLES
+
+.ab-column,
+.a-column {
+	@include thin-border(right);
+}
+
+.advertisement-300 {
+	text-align: center;
+}
+
+.top-news a,
+.inside-the-times a,
+.all-sections a {
+	color: $body-font-color;
+}
+
+.homepage h4 {
+	font-style: normal;
+	font-weight: bold;
+}
+
+
+.section-header-home {
+	font-size: emCalc(12);
+	margin-bottom: 1em;
+	text-transform: uppercase;
+}
+
+
+h5 {
+	font-weight: normal;
+	font-style: normal;
+}
+
+.kicker {
+	@include subhead-kicker(10);
+}
+
+.inside-the-times .row {
+	@include medium-border(top, $border-color);
+	@include medium-border(bottom, $border-color);
+	padding: 1em 0;
+	h5 {
+		font-size: emCalc(12);
+	}
+	.large-4:not(:last-child) {
+		@include thin-border(right);
+	}
+}
+
+header .branding {
+	@include medium-border(bottom);
+	padding-bottom: emCalc(10);
+	margin-bottom: emCalc(10);
+}
+
+.branding {
+	text-align: center;
+}
+
+
+.top-bar {
+	border-bottom: 1px solid $border-color;
+	ul {
+		background: none;
+	}
+	
+	.top-bar-section ul li > a {
+		background-color: transparent;
+		border: none;
+		font-size: 1em;
+	}
+	
+	ul li a:not(.button) {
+		color: $primary-color;
+	}
+	
+	ul li > a.masthead-sections-button {
+		background: url(http://graphics8.nytimes.com/images/test/reskin/sprite-masthead.png) 9px 8px no-repeat;
+	}
+	ul li > a.masthead-home-button {
+		background: url(http://graphics8.nytimes.com/images/test/reskin/sprite-masthead.png) 9px -45px no-repeat;
+	}
+	ul li > a.masthead-search-button {
+		background: url(http://graphics8.nytimes.com/images/test/reskin/sprite-masthead.png) 9px -92px no-repeat;
+	}
+	ul li > a.masthead-subscription-module {
+		font-weight: normal;
+	}
+	ul li > a.masthead-profile-toggle {
+		background: url(http://css.nyt.com/images/toggles/toggle_down_icon_9x5.gif) no-repeat right center;
+		padding-right: 14px;
+	}
+	ul li > a.masthead-settings-button {
+		background-image: url(http://nyt5-proto.stg.ewr1.nytimes.com/nyt5/images/sprite-masthead.png);
+		background-position: 7px -508px;
+		background-repeat: no-repeat;
+		text-indent: -9999px;
+		margin-left: emCalc(10);
+	}
+	ul li a.button {
+		text-transform: uppercase;
+		margin-right: 12px;
+		padding: 5px 9px 0 29px;
+		height: 28px;
+		&:hover {
+			color: $topbar-link-color;
+			background-color: $topbar-link-color-hover;
+		}
+		&:active {
+			box-shadow: none;
+		}
+	}
+	
+	#logo {
+		width: 100%;
+		text-align: center;
+		position: absolute;
+		background: url(http://nyt5-proto.stg.ewr1.nytimes.com/nyt5/images/sprite-masthead.png) no-repeat center -422px;
+		text-indent: -9999px;
+	}
+}
+
+#mini-nav {
+	text-align: center;
+	.inline-toggle {
+		float: right;
+		font-size: emCalc(11);
+	}
+	.inline-list { margin-bottom: emCalc(8); }
+	.inline-list li {
+		a {
+			color: $topbar-link-color;
+			text-transform: uppercase;
+			font-weight: bold;
+		}
+	}
+	.row {
+		@include thin-border(bottom);
+		margin-bottom: emCalc(12);
+	}
+}
+
+.b-column .orbit-container {
+	margin-bottom: emCalc(10);
+}
+
+.story {
+	margin-bottom: emCalc(22);
+	.summary {
+		font-size: emCalc(12);
+		line-height: 1.4;
+	}
+	.thumb {
+		float: right;
+		margin: 0 0 emCalc(5) emCalc(5);
+	}
+	.byline {
+		margin-bottom: emCalc(3);
+	}
+	.byline span {
+		text-transform: uppercase;
+	}
+	.dateline { color: $alert-color; }
+}
+
+.more-stories {
+	ul li a {
+		font-weight: bold;
+		color: $body-font-color;
+	}
+	h5 { @include subhead-kicker(12); }
+}
+
+.section-container.tabs {
+	> section > .title a {
+		padding: emCalc(10);
+		text-transform: uppercase;
+		font-size: emCalc(11);
+	}
+}
+
+.all-sections-grid {
+	margin-top: emCalc(10);
+	.large-15 .large-8 {
+		@include thin-border(right);
+	}
+	.large-15 .row {
+		padding: emCalc(8) 0;
+		@include thin-border(bottom);
+	}
+	h5 {
+		margin: 12px 0;
+		a {
+			font-weight: bold;
+			line-height: 1.25;
+			color: $body-font-color;
+		}
+		
+	}
+	h6 {
+		font-size: emCalc(12);
+		line-height: 1.2;
+		margin-bottom: emCalc(40);
+		font-style: normal;
+	}
+	.story h6 {
+		font-weight: bold;
+	}
+	
+	.story .thumb {
+		margin: 0 0 emCalc(5) emCalc(5);
+	}
+	
+	ol {
+		padding-left: 5px;
+		a {
+			font-size: emCalc(12);
+			color: $body-font-color;
+			font-weight: bold;
+		}
+		li {
+			margin: 0 0 emCalc(12) emCalc(20);
+		}
+	}
+}
+
+// ARTICLE STYLES 
+#ribbon > .row {
+	max-width: 100%;
+}
+
+#ribbon {
+    @include thin-border(bottom);
+    @include shadow(bottom);
+    margin-bottom: 1em;
+    padding-bottom: 1em;
+	.large-4 {
+		@include thin-border(right);
+	}
+}
+
+article .main p {
+	max-width: 535px;
+}
+
+article .marginalia {
+	float: right;
+	width: 300px;
+	margin: 1.875em;
+	
+	h3 {
+		font-size: emCalc(12);
+		line-height: 1.1818em;
+		text-transform: uppercase;
+		border-top: 1px dotted $border-color;
+		padding: 8px 0;
+	}
+}
+
+
+figure {
+	max-width: 540px;
+	figcaption {
+		font-size: .75rem;
+		line-height: 1.333em;
+		margin-top: 12px;
+		color: #666;
+	}
+	figcaption.credit {
+		color: #909090;
+	}
+	img {width: auto}
+	
+}
+
+figure.embedded {
+	margin: 1.875em 0;
+}
+
+figure.runaround {
+	float: right;
+	margin: 1em 0 1.875em 1.875em;
+}

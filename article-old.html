@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<title>New York Times</title>
+	<link rel="stylesheet" href="css/nyt-skin.css">
+	<script src="../shared/js/vendor/custom.modernizr.js"></script>
+	<script type="text/javascript" src="http://typeface.nytimes.com/mrn6omn.js?version=0.0.4"></script>
+	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+</head>
+<body>
+	<header class="mobile-nav show-for-small">
+		<div class="row masthead-row">
+			<div class="columns small-2 masthead-buttons-left">
+				<div class="nav-back-button">
+					<a href="javascript:window.history.back();" class="button"><i class="icon"></i><span>Sections</span></a>
+				</div>
+			</div>
+			<div class="columns small-8 logo">
+					<a href="index.html">The New York Times</a>
+			</div>
+			<div class="columns small-2 masthead-buttons-right">
+				<div class="nav-sections-button">
+					<a href="#" class="button" data-reveal-id="overlay-nav"><i class="icon"></i><span>Sections</span></a>
+				</div>
+			</div>
+		</div>
+		<div class="banner-ad row">
+			<div class="columns small-12">
+				<img src="images/ad_300x50.jpg">
+			</div>
+		</div>
+	</header>
+
+<nav id="overlay-nav" class="reveal-modal">
+	<div class="row">
+		<div class="columns small-6">
+			<ul>
+				<li><a href="./index.html">Home</a></li>
+				<li><a href="./index.html?section=world">World</a></li>
+				<li><a href="./index.html?section=national">U.S.</a></li>
+				<li><a href="./index.html?section=politics">Politics</a></li>
+				<li><a href="./index.html?section=nyregion">N.Y. / Region</a></li>
+				<li><a href="./index.html?section=business">Business Day</a></li>
+				<li><a href="./index.html?section=technology">Technology</a></li>
+				<li><a href="./index.html?section=sports">Sports</a></li>
+			</ul>
+		</div>
+		<div class="columns small-6">
+			<ul>
+				<li><a href="./index.html?section=opinion">Opinion</a></li>
+				<li><a href="./index.html?section=science">Science</a></li>
+				<li><a href="./index.html?section=health">Health</a></li>
+				<li><a href="./index.html?section=arts">Arts</a></li>
+				<li><a href="./index.html?section=style">Style</a></li>
+			</ul>
+		</div>
+	</div>
+	<div class="row">
+		<div class="columns small-6">
+			<ul>
+				<li><a href="./index.html?section=automobiles">Autos</a></li>
+				<li><a href="./index.html?section=books">Books</a></li>
+				<li><a href="./index.html?section=dining">Dining & Wine</a></li>
+				<li><a href="./index.html?section=education">Education</a></li>
+				<li><a href="./index.html?section=fashion">Fashion & Style</a></li>
+				<li><a href="./index.html?section=garden">Home & Garden</a></li>
+				<li><a href="./index.html?section=business/media">Media</a></li>
+				<li><a href="./index.html?section=movies">Movies</a></li>
+			</ul>
+		</div>
+		<div class="columns small-6">
+			<ul>
+				<li><a href="./index.html?section=arts/music">Music</a></li>
+				<li><a href="./index.html?section=obituaries">Obituaries</a></li>
+				<li><a href="./index.html?section=realestate">Real Estate</a></li>
+				<li><a href="./index.html?section=t-magazine">T Magazine</a></li>
+				<li><a href="./index.html?section=arts/television">Television</a></li>
+				<li><a href="./index.html?section=theater">Theater</a></li>
+				<li><a href="./index.html?section=travel">Travel</a></li>
+				<li><a href="./index.html?section=weddings">Weddings / Celebrations</a></li>
+			</ul>
+		</div>
+	</div>
+</nav>
+	<article>
+
+<script id="article-template" type="text/x-handlebars-template">
+
+			<div class="columns small-12">
+				{{#if cms.article.kicker}}
+				<div class="kicker">{{cms.article.kicker}}</div>
+				{{/if}}
+				<h1>{{cms.article.headline}}</h1>
+				{{findLeadScoopImage cms.article.related}}
+			</div>
+
+			<div class="columns small-8">
+				<span class="byline">{{cms.article.byline}}</span>
+				<span class="dateline">{{formatDate cms.article.lst_published_ts}}</span>
+			</div>
+			<div class="columns small-4">
+				<ul class="share-tools-list">
+					<li class="share-button">
+						<a href="#" class="button tiny"><i class="icon"></i><span>Share</span></a>
+					</li>
+					<li class="save-button">
+						<a href="#" class="button tiny"><i class="icon"></i><span>Save</span></a>
+					</li>
+					<li class="comments-button">
+						<a href="#" class="button tiny"><i class="icon"></i><span>Comment</span></a>
+					</li>
+				</ul>
+			</div>
+			<div class="columns small-12">
+				{{{cms.article.body}}}
+			</div>
+			<div class="columns small-12">
+				<ul class="share-tools-list-bottom">
+					<li class="share-button">
+						<a href="#" class="button tiny"><i class="icon"></i><span>Share</span></a>
+					</li>
+					<li class="save-button">
+						<a href="#" class="button tiny"><i class="icon"></i><span>Save</span></a>
+					</li>
+					<li class="comments-button">
+						<a href="#" class="button tiny"><i class="icon"></i><span>Comment</span></a>
+					</li>
+				</ul>
+			</div>
+</script>
+<script id="blogpost-template" type="text/x-handlebars-template">
+
+			<div class="columns small-12">
+				<h1>{{blogpost.post_title}}</h1>
+				{{findLeadWordpressImage blogpost.media}}
+			</div>
+
+			<div class="columns small-8">
+				<span class="byline">{{blogpost.byline}}</span>
+				<span class="dateline">{{formatDate blogpost.post_date}}</span>
+			</div>
+			<div class="columns small-4">
+				<ul class="share-tools-list">
+					<li class="share-button">
+						<a href="#" class="button tiny"><i class="icon"></i><span>Share</span></a>
+					</li>
+					<li class="save-button">
+						<a href="#" class="button tiny"><i class="icon"></i><span>Save</span></a>
+					</li>
+					<li class="comments-button">
+						<a href="#" class="button tiny"><i class="icon"></i><span>Comment</span></a>
+					</li>
+				</ul>
+			</div>
+			<div class="columns small-12">
+				{{{blogpost.post_content}}}
+			</div>
+			<div class="columns small-12">
+				<ul class="share-tools-list-bottom">
+					<li class="share-button">
+						<a href="#" class="button tiny"><i class="icon"></i><span>Share</span></a>
+					</li>
+					<li class="save-button">
+						<a href="#" class="button tiny"><i class="icon"></i><span>Save</span></a>
+					</li>
+					<li class="comments-button">
+						<a href="#" class="button tiny"><i class="icon"></i><span>Comment</span></a>
+					</li>
+				</ul>
+			</div>
+</script>
+		<div id="article-content" class="row"><div class="loading-placeholder"></div></div>
+		<footer class="mobile-footer">
+			<div class="row">
+				<div class="columns small-4">
+					<div class="footer-sections-button">
+						<a href="#" class="button" data-reveal-id="overlay-nav"><i class="icon"></i><span>Sections</span></a>
+					</div>
+				</div>
+				<div class="columns small-4 small-offset-4">
+					<div class="footer-back-to-top-button">
+						<a href="#top" class="button"><i class="icon"></i><span>Back to Top</span></a>
+					</div>
+				</div>
+			</div>
+			<div class="banner-ad row">
+				<div class="columns small-12">
+					<img src="images/ad_300x50.jpg">
+				</div>
+			</div>
+			<div class="row service-links help-links">
+				<div class="columns small-12">
+					<ul>
+						<li><a href="#">Help</a></li>
+						<li><a href="#">Feedback</a></li>
+						<li><a href="#">Terms of Service</a></li>
+						<li><a href="#">Privacy</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="row service-links copyright">
+				<div class="columns small-12">
+					<a href="#">&copy;</a> <span>New York Times</span>
+				</div>
+			</div>
+		</footer>
+
+	</article>
+
+		<script>
+		document.write('<script src=' +
+		('__proto__' in {} ? '../shared/js/vendor/zepto' : '../shared/js/vendor/jquery') +
+		'.js><\/script>')
+		</script>
+		<script src="../shared/js/foundation/foundation.js"></script>
+		<script src="../shared/js/foundation/foundation.alerts.js"></script>
+		<script src="../shared/js/foundation/foundation.clearing.js"></script>
+		<script src="../shared/js/foundation/foundation.cookie.js"></script>
+		<script src="../shared/js/foundation/foundation.dropdown.js"></script>
+		<script src="../shared/js/foundation/foundation.forms.js"></script>
+		<script src="../shared/js/foundation/foundation.joyride.js"></script>
+		<script src="../shared/js/foundation/foundation.magellan.js"></script>
+		<script src="../shared/js/foundation/foundation.orbit.js"></script>
+		<script src="../shared/js/foundation/foundation.placeholder.js"></script>
+		<script src="../shared/js/foundation/foundation.reveal.js"></script>
+		<script src="../shared/js/foundation/foundation.section.js"></script>
+		<script src="../shared/js/foundation/foundation.tooltips.js"></script>
+		<script src="../shared/js/foundation/foundation.topbar.js"></script>
+		<script src="../shared/js/foundation/foundation.interchange.js"></script>
+		<script src="../shared/js/vendor/handlebars.js"></script>
+		<script src="../shared/js/app/helpers.js"></script>
+		<script src="../shared/js/app/app.js"></script>
+		<script src="../moderator/moderation-client.js"></script>
+		<script>
+			$(document).foundation();
+		</script>
+</body>
+</html>
